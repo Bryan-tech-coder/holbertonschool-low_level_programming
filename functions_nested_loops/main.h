@@ -3,5 +3,5 @@
 
 int _putchar(char c);
 
-#endif
+#endif /* MAIN_H */
 
