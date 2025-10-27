@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strspn - obtiene la longitud de un prefijo que contiene solo caracteres aceptados
+ * _strspn - obtiene la longitud de un pre que contiene solo caracteres acept
  * @s: cadena donde se buscará
  * @accept: conjunto de caracteres válidos
  *
