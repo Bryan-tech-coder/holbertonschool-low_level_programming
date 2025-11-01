@@ -18,36 +18,14 @@ void print_number(int n)
 }
 
 /**
- * main - prints the minimum number of coins to make change
- * for an amount of money
- * @argc: number of arguments
- * @argv: array of arguments
+ * calculate_coins - calculates the minimum number of coins
+ * @cents: amount of money in cents
  *
- * Return: 0 if success, 1 if error
+ * Return: minimum number of coins
  */
-int main(int argc, char *argv[])
+int calculate_coins(int cents)
 {
-	int cents, coins = 0;
-
-	if (argc != 2)
-	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
-		return (1);
-	}
-
-	cents = atoi(argv[1]);
-
-	if (cents < 0)
-	{
-		_putchar('0');
-		_putchar('\n');
-		return (0);
-	}
+	int coins = 0;
 
 	while (cents >= 25)
 	{
@@ -74,8 +52,44 @@ int main(int argc, char *argv[])
 		cents -= 1;
 		coins++;
 	}
+	return (coins);
+}
 
+/**
+ * main - prints the minimum number of coins to make change
+ * for an amount of money
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: 0 if success, 1 if error
+ */
+int main(int argc, char *argv[])
+{
+	int cents, coins;
+
+	if (argc != 2)
+	{
+		_putchar('E');
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
+		_putchar('\n');
+		return (1);
+	}
+
+	cents = atoi(argv[1]);
+
+	if (cents < 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (0);
+	}
+
+	coins = calculate_coins(cents);
 	print_number(coins);
 	_putchar('\n');
+
 	return (0);
 }
