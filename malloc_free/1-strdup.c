@@ -1,7 +1,8 @@
 #include "main.h"
 #include <stdlib.h>
+
 /**
- * _strdup - returns a pointer to a newly allocated space in memory
+ * _strdup - returns a pointer to a newly allocated space in memory,
  * which contains a copy of the string given as a parameter
  * @str: string to duplicate
  *
@@ -9,23 +10,25 @@
  */
 char *_strdup(char *str)
 {
-	char *copy;
-	unsigned int i, len;
+    char *copy;
+    unsigned int i, length;
 
-	if (str == NULL)
-		return (NULL);
-	len = 0;
-	while (str[len] != '\0')
-		len++;
+    if (str == NULL)
+        return (NULL);
 
-	copy = malloc((len + 1) * sizeof(char));
-	if (copy == NULL)
-		return (NULL);
+    /* Calcula la longitud usando for */
+    for (length = 0; str[length] != '\0'; length++)
+        ;
 
-	for (i = 0; i < len; i++)
-		copy[i] = str[i];
+    copy = malloc((length + 1) * sizeof(char));
+    if (copy == NULL)
+        return (NULL);
 
-	copy[i] = '\0';
+    /* Copia los caracteres */
+    for (i = 0; i < length; i++)
+        copy[i] = str[i];
 
-	return (copy);
+    copy[i] = '\0';
+
+    return (copy);
 }
